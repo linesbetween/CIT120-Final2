@@ -40,7 +40,7 @@ void main(){
 	int currentMonth, currentDay;
 	int entryDate, entryCode;
 	double entryAmount;
-	double budget, currentBalance, currentTotalSpend;
+	double budget = 0, currentBalance = 0, currentTotalSpend = 0;
 	int numOfEntries;
 	int firstDayOfMonthYearIndex;
 
@@ -146,8 +146,9 @@ void main(){
 		case 5: cout << "\n Under Construction \n";  break;
 		case 6: 
 				fstream file;
-				file.open(DATA_FILE_NAME[currentMonth - 1], ios::in);
-				//writeMonthData(file, budget, dayArr[], cataCodeArr[], amountArr[], numOfEntries);
+				file.open(DATA_FILE_NAME[currentMonth - 1], ios::out);
+				writeMonthData(file, budget, dayArr, cataCodeArr, amountArr, numOfEntries);
+				file.close();
 			    exit = true;
 				break;
 		
